@@ -1,0 +1,139 @@
+<html>
+
+<head>
+<base target="frame">
+<strong></strong>
+<meta http-equiv="Content-Language" content="fr">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Pays</title>
+<script language="Javascript" src="../../../main.nsf/eCommParamsValues.js?openPage"></script>
+<script>
+function updateComboBox (idSelect,data,selectedKey) {
+	var monSelect = document.getElementById(idSelect);
+	temp=data.split(",");
+	monSelect.options.length = 0;
+	tempSel=selectedKey.split(",")
+	
+	for (i=0;i<temp.length;i++) {		
+		
+		monSelect.options[monSelect.length] = new Option(temp[i],temp[i]);
+		for (j=0;j<tempSel.length;j++) {
+			if (tempSel[j] == temp[i]) {
+				monSelect.options[i].selected=true;
+			}
+		
+		}	
+	}
+	
+}
+
+</script>
+
+</head>
+
+<body>
+<form name="h_PageUI" >
+<INPUT type="hidden" name="EP_FIELD_1_DATA" >
+<INPUT type="hidden" name="EP_FIELD_2_DATA" >
+<INPUT type="hidden" name="EP_FIELD_3_DATA" >
+<script>
+if(h_isBeingEdited == "1"){ 
+	writeHidden();		
+}
+
+</script>
+
+<table border="0" width="100%" id="table1">
+	<tr>
+		<td>
+		<table border="0" width="100%" id="table2">
+			<tr>
+				<td class="monstyle" width="160"><font color="#1d3e8f"><u>Pays</u></font></td>
+				<td width="120">
+				<b><select size="1" name="Country" id="Country" >
+	    			<option value="None" selected>None</option>
+				<option value="Scope1">Scope1</option>		
+				</select></b>
+               		</td>
+				<td class="monstyle" align=right><font color="#1d3e8f"><u>Code Pays</u></font></td>
+				<td><b><input type="text" name="CCountry" size="5">
+				</b></td>
+			</tr>
+	            <tr>
+		      <td colspan="5">
+    		      <HR WIDTH="100%" size=1  COLOR="#0F1478" align="left"></td>
+  		      </tr>
+
+		    <tr>
+		        <td  rowspan="5" width="75" height="100" class="monstyle">
+			        <script>
+				img1 = '<img src="../../($All)/'+h_PageUnid+'/$FILE/photo.jpg?OpenElement"';
+				img2 = 'width ="150" height ="200" alt="" border="0">';	
+				document.write(img1 + img2);				
+				</script>
+	            </td>
+			      <td class="monstyle">&nbsp;</td>
+			      <td class="monstyle"><b>
+                  <select size="3" name="Metiers" id="Metiers" multiple="true">
+                  <option value="None" selected>None</option>
+                  <option value="Scope1">Scope1</option> 
+                  </select></td>
+			      <td class="monstyle">&nbsp;</td>
+	      </tr>
+		    <tr>
+				<td width="120" class="monstyle"><u>Rôle de l'associé</u></td>
+				<td width="350" class="monstyle"><b><textarea rows="2" name="S1" cols="20"></textarea></b></td>
+				<td class="monstyle"><font color="#1d3e8f"><script>
+             if(h_isBeingEdited != "1"){       
+			 document.write("<a href=\"../../($All)/"+h_PageUnid+"/$FILE/cv.doc?openelement\" target=_TOP>CV</a><br>");
+			 }
+				 </script></font></td>
+			</tr>			
+			<tr>
+		      <td colspan="5">
+    		      <HR WIDTH="100%" size=1  COLOR="#0F1478" align="left"></td>
+  		      </tr>
+			<tr>
+				<td width="120" class="monstyle"><u>Activités</u></td>
+				<td width="350" class="monstyle"><b><textarea rows="2" name="S2" cols="20"></textarea></b></td>
+				<td class="monstyle"><font color="#1d3e8f"><script>
+             if(h_isBeingEdited != "1"){       
+			 document.write("<a href=\"../../($All)/"+h_PageUnid+"/$FILE/pays.pdf?openelement\" target=_TOP>Fiche pays</a><br>");
+			 }
+				 </script></font></td>
+			</tr>	            
+			<tr>
+		      <td colspan="5">
+    		      <HR WIDTH="100%" size=1  COLOR="#0F1478" align="left"></td>
+  		      </tr>
+		</table>
+
+<table border="0" width="100%" id="table4">
+	<tr>
+		  <td colspan="4" class="monstyle">
+              <script>
+			  if(h_isBeingEdited != "1"){ 
+			        
+			 document.write("<iframe  id =\"frame\" name=\"frame\" src=\"../../(VlisteMetiersByCtry)?openview&restrictTocategory="+fieldNames.Country +"\" width=98% height=100% align=left scrolling=\"Auto\" marginheight=0 marginwidth=5 frameborder=\"0\" style=\"margin-left:5px;border-left:0\"><br>");			 }
+		  </script>
+              </td>
+      </tr>
+	<tr>
+		  <td class="monstyle"><p><a href="javascript:history.back()">Back</a></p></td>
+		  <td class="monstyle">&nbsp;<td class="monstyle">&nbsp;</td>
+		  <td class="monstyle"><font color="#1d3e8f"><a href="javascript:window.print()">Print</a></font></td>
+      </tr>
+</table>		    
+<QUICKPLACECONTROL type="attachment" name="AttachedDeliv">
+<INPUT type="hidden" name="GTS_PWC_FORM" value="GTS_PAYS">
+</form>
+<script>
+if(h_isBeingEdited == "1"){ 
+	updateComboBox("Country",document.h_PageUI.EP_FIELD_3_DATA.value,fieldNames.Country);	
+	updateComboBox("Metiers",document.h_PageUI.EP_FIELD_2_DATA.value,fieldNames.Metiers);	
+}
+</script>
+
+</body>
+
+</html>

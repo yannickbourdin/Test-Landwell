@@ -1,0 +1,167 @@
+<html>
+
+<head>
+<base target="_parent">
+   <style>
+		.monstyle{
+	border-top-width: 0px;
+	border-top-style: solid;
+	border-top-color: #88CDD8; 
+	border-bottom-width: 0px;
+	border-bottom-style: solid;
+	border-bottom-color: #88CDD8;
+	}
+		a {
+	text-align: right;
+}
+        </style>
+<meta http-equiv="Content-Language" content="fr">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Métier Total</title>
+<script language="Javascript" src="../../../main.nsf/eCommParamsValues.js?openPage"></script>
+<script>
+function updateComboBox (idSelect,data,selectedKey) {
+	var monSelect = document.getElementById(idSelect);
+	temp=data.split(",");
+	monSelect.options.length = 0;
+	var selected;
+	
+	for (i=0;i<temp.length;i++) {		
+		if (selectedKey == temp[i]) {
+			selected = i;
+		}
+		monSelect.options[monSelect.length] = new Option(temp[i],temp[i]);
+		
+	}
+	//permet de positionner la combo au bon champs
+	monSelect.selectedIndex = selected;
+}
+
+</script>
+</head>
+
+<body>
+<form name="h_PageUI" >
+<INPUT type="hidden" name="EP_FIELD_1_DATA" >
+<INPUT type="hidden" name="EP_FIELD_2_DATA" >
+<INPUT type="hidden" name="EP_FIELD_3_DATA" >
+<INPUT type="hidden" name="listCV" >
+<INPUT type="hidden" name="listCVNames" >
+<script>
+if(h_isBeingEdited == "1"){ 
+	writeHidden();		
+}
+
+</script>
+
+<table border="0" width="100%" id="table1">
+	<tr>
+	      <td colspan="3">
+    	      <HR WIDTH="100%" size=1  COLOR="#0F1478" align="left"></td>
+  	</tr>
+	<tr>
+		<td width=150px class="monstyle"><u>Business</u></td>				
+	      <td><b><select size="1" name="metier" id="metier">
+	    		<option value="None" selected>None</option>
+			<option value="Scope1">Scope1</option>		
+		    </select></b>
+		</td>
+		<td class="monstyle">
+              <script>
+				img1 = '<img src="../../($All)/'+h_PageUnid+'/$FILE/icone.jpg?OpenElement"';
+				img2 = 'width ="100" height ="100" alt="" border="0" align="right">';	
+				document.write(img1 + img2);				
+		  </script>
+            </td>
+	</tr>
+	<tr>
+	      <td colspan="3">
+    	      <HR WIDTH="100%" size=1  COLOR="#0F1478" align="left"></td>
+  	</tr>
+	<tr>
+		<td  rowspan="3" class="monstyle">
+              <script>
+		  img1 = '<img src="../../($All)/'+h_PageUnid+'/$FILE/photo.jpg?OpenElement"';
+		  img2 = 'width ="150" height ="200" alt="" border="0">';	
+		  document.write(img1 + img2);				
+		  </script>        
+		</td>	
+	</tr>
+	<tr>
+		<td width=150px class="monstyle"><u>Rôle de l'équipe</u></td>
+		<td class="monstyle"><b><textarea rows="2" name="Descriptif_Equipe" cols="40"></textarea></b></td>
+		<td >
+			<script>
+			if(h_isBeingEdited != "1"){ 
+				var selCv = fieldNames.listCV;
+				tempCV=selCv.split(",");
+				tempCV.sort();
+					
+				var selCvNames = fieldNames.listCVNames;
+				tempCVNames=selCvNames.split(",");
+
+				for (i=0;i<tempCV.length;i++) {	
+				    tempL=tempCV[i].split("#");
+				    document.write("<a href=\"../../h_Index/"+tempL[1]+"/$FILE/cv.doc?OpenElement\" target=_TOP>"+tempL[0]+"</a><br>") ;							
+				}
+			}	
+			</script>
+		</td>
+	</tr>	
+	<tr>
+	      <td colspan="3">
+    	      <HR WIDTH="100%" size=1  COLOR="#0F1478" align="left"></td>
+  	</tr>
+	<tr>
+		<td width=150px class="monstyle"><u>Organigramme Métier</u></td>
+		<td class="monstyle"><b><textarea rows="2" name="Descriptif_orga" cols="40"></textarea></b></td>
+		<td ><font color="#1d3e8f">
+			<script>
+            	if(h_isBeingEdited != "1"){       
+			 document.write("<a href=\"../../($All)/"+h_PageUnid+"/$FILE/organigramme.pdf?openelement\" target=_TOP>Organigramme</a><br>");
+			 }
+			</script></font>
+		</td>
+	</tr>
+	<tr>
+		<td width=150px class="monstyle"><u>Ressources</u></td>
+		<td colspan=2 class="monstyle"><b><textarea rows="2" name="S1" cols="40"></textarea></b></td>
+	</tr>
+	<tr>
+	      <td colspan="3">
+    	      <HR WIDTH="100%" size=1  COLOR="#0F1478" align="left"></td>
+  	</tr>
+	<tr>
+		<td colspan=3>
+			<script>
+			  if(h_isBeingEdited != "1"){       
+			 document.write("<iframe  id =\"frame\" name=\"frame\" src=\"../../(VlisteCountriesByBiz)?openview&restrictToCategory=" +fieldNames.metier+"\"  width=98% height=100% align=left scrolling=\"Auto\" marginheight=0 marginwidth=5 frameborder=\"0\" style=\"margin-left:5px;border-left:0\"><br>");			 }
+		
+			</script>
+		</td>
+	</tr>
+      <tr>
+		<td class="monstyle"><a href="javascript:history.back(">Back</a></td>
+		<td class="monstyle">&nbsp;</td>
+		<td class="monstyle"><A href="javascript:window.print()">Print</A></td>
+	</tr>
+</table>
+
+<script>
+	if(h_isBeingEdited != "1") document.write('<div id=Read style="display:none;">');
+</script>
+<QUICKPLACECONTROL type="attachment" name="AttachedFiles">
+<script>
+if(h_isBeingEdited != "1") document.write('</div>');
+</script>
+<INPUT type="hidden" name="GTS_PWC_FORM" value="GTS_METIER">
+</form>
+<script>
+if(h_isBeingEdited == "1"){ 
+	updateComboBox("metier",document.h_PageUI.EP_FIELD_2_DATA.value,fieldNames.metier);	
+		updateComboBox("Pays",document.h_PageUI.EP_FIELD_3_DATA.value,fieldNames.Pays);	
+}
+</script>
+</body>
+
+</html>
